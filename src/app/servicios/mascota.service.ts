@@ -54,8 +54,8 @@ export class MascotaService {
     return this.miMascota.tipo;
   }
   ///////////////////////////////
-  traerTodosLosMascotas(): Promise<any> {
-    return this.miHttp.httpGetP('traerTodosLosMascotas')
+  traerTodasLasMascotas(): Promise<any> {
+    return this.miHttp.httpGetP('traerTodasLasMascotas')
       .then(data => {
         console.log(data);
         return data;

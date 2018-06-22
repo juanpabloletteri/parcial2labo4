@@ -18,8 +18,8 @@ export class AltaMascotaComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private miMascota: Mascota, private miServicioMascota: MascotaService, public rute: Router) {
     this.types = [
-      { label: 'Gato', value: 0, icon: 'fa fa-fw fa-cc-paypal' },
-      { label: 'Perro', value: 1, icon: 'fa fa-fw fa-cc-visa' }
+      { label: 'Gato', value: 100, icon: 'fa fa-fw fa-cc-paypal' },
+      { label: 'Perro', value: 200, icon: 'fa fa-fw fa-cc-visa' }
     ];
   }
 
