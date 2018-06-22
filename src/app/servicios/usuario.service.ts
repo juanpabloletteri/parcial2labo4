@@ -10,8 +10,8 @@ export class UsuarioService {
   constructor(private miHttp: MiHttpService, private miUsuario: Usuario) { }
 
   /////////////////////////
-  setIdUsuario() {
-    this.miUsuario.id_usuario;
+  setIdUsuario(data) {
+    this.miUsuario.id_usuario = data;
   }
   setMail(data) {
     this.miUsuario.mail = data;
@@ -30,7 +30,7 @@ export class UsuarioService {
   }
   /////////////////////////
   getIdUsuario() {
-    return this.miUsuario.mail;
+    return this.miUsuario.id_usuario;
   }
   getMail() {
     return this.miUsuario.mail;
