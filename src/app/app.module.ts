@@ -17,7 +17,6 @@ import { RouterModule, Route, Routes } from '@angular/router';
 //MODULO AUTENTICACION
 import { AutenticacionService } from './servicios/autenticacion.service';
 import { AppComponent } from './app.component';
-
 //ROUTEO
 const config: Routes = [
   {
