@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Validators, FormControl, FormGroup, FormBuilder } from '@angular/forms';
 import { Usuario } from '../../clases/usuario';
 import { UsuarioService } from '../../servicios/usuario.service';
+import { Router } from '@angular/router';
 import swal from 'sweetalert2';
 
 @Component({
@@ -13,7 +14,7 @@ export class RegistroComponent implements OnInit {
 
   userform: FormGroup;
 
-  constructor(private fb: FormBuilder, private miUsuario: Usuario, private miServicioUsuario: UsuarioService) { }
+  constructor(private fb: FormBuilder, private miUsuario: Usuario, private miServicioUsuario: UsuarioService, public rute: Router) { }
 
   ngOnInit() {
     this.userform = this.fb.group({
@@ -26,14 +27,17 @@ export class RegistroComponent implements OnInit {
   }
 
   onSubmit(value: string) {
-
     if (this.userform.value.password == this.userform.value.password2) {
       this.miUsuario.mail = this.userform.value.mail;
       this.miUsuario.password = this.userform.value.password;
       this.miUsuario.nombre = this.userform.value.nombre;
       this.miUsuario.apellido = this.userform.value.apellido;
       this.miUsuario.tipo = 2;
-      console.log(this.miUsuario);
+
+      this.miServicioUsuario.agregarUsuario(this.miUsuario)
+        .then(data => {
+          this.rute.navigate(['']);
+        })
     }
     else {
       swal({
@@ -42,11 +46,6 @@ export class RegistroComponent implements OnInit {
         text: 'Contraseñas no identicas!',
       })
     }
-
-    /*this.miServicioUsuario.agregarUsuario(this.miUsuario)
-      .then(data => {
-
-      })*/
   }
 
 }
