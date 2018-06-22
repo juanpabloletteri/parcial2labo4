@@ -16,18 +16,47 @@ import { PrimengModule } from './modulos/primeng/primeng.module';
 import { RouterModule, Route, Routes } from '@angular/router';
 //MODULO AUTENTICACION
 import { AutenticacionService } from './servicios/autenticacion.service';
+//COMPONENTES
 import { AppComponent } from './app.component';
+import { LoginComponent } from './componentes/login/login.component';
+import { RegistroComponent } from './componentes/registro/registro.component';
+import { AltaMascotaComponent } from './componentes/alta-mascota/alta-mascota.component';
+import { ListaMascotasComponent } from './componentes/lista-mascotas/lista-mascotas.component';
+import { ListaTurnosComponent } from './componentes/lista-turnos/lista-turnos.component';
+import { EdadPipe } from './pipes/edad.pipe';
 //ROUTEO
 const config: Routes = [
   {
     path: '',
-    component: AppComponent
+    component: LoginComponent
+  },
+  {
+    path: 'registro',
+    component: RegistroComponent
+  },
+  {
+    path: 'alta',
+    component: AltaMascotaComponent
+  },
+  {
+    path: 'listamascota',
+    component: ListaMascotasComponent
+  },
+  {
+    path: 'listaturnos',
+    component: ListaTurnosComponent
   }
 ]
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent,
+    RegistroComponent,
+    AltaMascotaComponent,
+    ListaMascotasComponent,
+    ListaTurnosComponent,
+    EdadPipe
   ],
   imports: [
     BrowserModule,

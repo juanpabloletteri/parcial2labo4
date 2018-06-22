@@ -1,24 +1,9 @@
-<!--The content below is only a placeholder and can be replaced.-->
+<div class="w3-bar w3-blue">
+    <a routerLink="" class="w3-bar-item w3-button w3-mobile">Login</a>
+    <a routerLink="registro" class="w3-bar-item w3-button w3-mobile">Registro</a>
+    <a routerLink="alta" class="w3-bar-item w3-button w3-mobile">Alta Mascota</a>
+    <a routerLink="listamascota" class="w3-bar-item w3-button w3-mobile">Lista Mascota</a>
+    <a routerLink="listaturnos" class="w3-bar-item w3-button w3-mobile">Lista Turnos</a>
+  </div>
 
-
-<h3>Button Component</h3>
-<p-button (onClick)="count()" label="Click"></p-button>
-<p-button (onClick)="count()" icon="pi pi-check" label="Click"></p-button>
-<p-button (onClick)="count()" icon="pi pi-check" iconPos="right" label="Click"></p-button>
-<p-button (onClick)="count()" icon="pi pi-check"></p-button>
-<p-button (onClick)="count()" icon="pi pi-check" [disabled]="true" label="Disabled"></p-button>
-
-<h3>Button Directive</h3>
-<button pButton type="button" (click)="count()" label="Click"></button>
-<button pButton type="button" (click)="count()" icon="pi pi-check" label="Click"></button>
-<button pButton type="button" (click)="count()" icon="pi pi-check" iconPos="right" label="Click"></button>
-<button pButton type="button" (click)="count()" icon="pi pi-check"></button>
-<button pButton type="button" (click)="count()" icon="pi pi-check" [disabled]="true" label="Disabled"></button>
-
-<h3>Severity Buttons</h3>
-<button pButton type="button" (click)="count()" label="Primary"></button>
-<button pButton type="button" (click)="count()" label="Secondary" class="ui-button-secondary"></button>
-<button pButton type="button" (click)="count()" label="Success" class="ui-button-success"></button>
-<button pButton type="button" (click)="count()" label="Info"  class="ui-button-info"></button>
-<button pButton type="button" (click)="count()" label="Warning"  class="ui-button-warning"></button>
-<button pButton type="button" (click)="count()" label="Danger"  class="ui-button-danger"></button>
+<router-outlet></router-outlet>
