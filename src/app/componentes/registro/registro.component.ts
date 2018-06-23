@@ -3,6 +3,7 @@ import { Validators, FormControl, FormGroup, FormBuilder } from '@angular/forms'
 import { Usuario } from '../../clases/usuario';
 import { UsuarioService } from '../../servicios/usuario.service';
 import { Router } from '@angular/router';
+import { SelectItem } from 'primeng/api';
 import swal from 'sweetalert2';
 
 @Component({
@@ -13,8 +14,18 @@ import swal from 'sweetalert2';
 export class RegistroComponent implements OnInit {
 
   userform: FormGroup;
+  types: SelectItem[];
+  tipo: number;
 
-  constructor(private fb: FormBuilder, private miUsuario: Usuario, private miServicioUsuario: UsuarioService, public rute: Router) { }
+  constructor(private fb: FormBuilder, private miUsuario: Usuario, private miServicioUsuario: UsuarioService, public rute: Router) {
+
+    this.tipo = this.miServicioUsuario.getTipo();
+
+    this.types = [
+      { label: 'Administrador', value: 1, icon: 'fa fa-fw fa-cc-paypal' },
+      { label: 'Cliente', value: 2, icon: 'fa fa-fw fa-cc-visa' }
+    ];
+  }
 
   ngOnInit() {
     this.userform = this.fb.group({
@@ -22,7 +33,8 @@ export class RegistroComponent implements OnInit {
       'password': new FormControl('', Validators.compose([Validators.required, Validators.minLength(6)])),
       'password2': new FormControl('', Validators.compose([Validators.required, Validators.minLength(6)])),
       'nombre': new FormControl('', Validators.required),
-      'apellido': new FormControl('', Validators.required)
+      'apellido': new FormControl('', Validators.required),
+      'tipo': new FormControl('', Validators.required)
     });
   }
 
@@ -32,7 +44,12 @@ export class RegistroComponent implements OnInit {
       this.miUsuario.password = this.userform.value.password;
       this.miUsuario.nombre = this.userform.value.nombre;
       this.miUsuario.apellido = this.userform.value.apellido;
-      this.miUsuario.tipo = 2;
+      if (this.tipo == 2) {
+        this.miUsuario.tipo = 2;
+      } else {
+        this.miUsuario.tipo = this.userform.value.tipo;
+      }
+
 
       this.miServicioUsuario.agregarUsuario(this.miUsuario)
         .then(data => {
