@@ -18,7 +18,8 @@ import { PrimengModule } from './modulos/primeng/primeng.module';
 //MODULO ROUTEO
 import { RouterModule, Route, Routes } from '@angular/router';
 //MODULO AUTENTICACION
-import { AutenticacionService } from './servicios/autenticacion.service';
+import { AutentificacionAdminService } from './servicios/autentificacion-admin.service';
+import { AutentificacionClienteService } from './servicios/autentificacion-cliente.service';
 //COMPONENTES
 import { AppComponent } from './app.component';
 import { LoginComponent } from './componentes/login/login.component';
@@ -45,6 +46,7 @@ const config: Routes = [
   {
     path: 'admin',
     component: AdminComponent,
+    canActivate: [AutentificacionAdminService],
     children: [
       {
         path: 'alta',
@@ -67,6 +69,7 @@ const config: Routes = [
   {
     path: 'cliente',
     component: ClienteComponent,
+    canActivate: [AutentificacionClienteService],
     children: [
       {
         path: 'alta',
@@ -121,14 +124,15 @@ const config: Routes = [
   ],
   providers: [
     MiHttpService,
-    AutenticacionService,
     Mascota,
     MascotaService,
     Usuario,
     TurnoService,
     Turno,
     UsuarioService,
-    LoginService
+    LoginService,
+    AutentificacionAdminService,
+    AutentificacionClienteService
   ],
   bootstrap: [AppComponent]
 })
