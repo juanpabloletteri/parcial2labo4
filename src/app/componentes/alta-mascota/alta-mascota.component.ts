@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Validators, FormControl, FormGroup, FormBuilder } from '@angular/forms';
 import { Mascota } from '../../clases/mascota';
 import { MascotaService } from '../../servicios/mascota.service';
+import { UsuarioService } from '../../servicios/usuario.service';
 import { SelectItem } from 'primeng/api';
 import { Router } from '@angular/router';
 import swal from 'sweetalert2';
@@ -16,7 +17,9 @@ export class AltaMascotaComponent implements OnInit {
   userform: FormGroup;
   types: SelectItem[];
 
-  constructor(private fb: FormBuilder, private miMascota: Mascota, private miServicioMascota: MascotaService, public rute: Router) {
+  constructor(private fb: FormBuilder, private miMascota: Mascota, private miServicioMascota: MascotaService, public rute: Router, private miServiciousuario: UsuarioService) {
+    this.miMascota.id_duenio = this.miServiciousuario.getIdUsuario();
+
     this.types = [
       { label: 'Gato', value: 100, icon: 'fa fa-fw fa-cc-paypal' },
       { label: 'Perro', value: 200, icon: 'fa fa-fw fa-cc-visa' }
@@ -39,9 +42,6 @@ export class AltaMascotaComponent implements OnInit {
     this.miMascota.color = this.userform.value.color;
     this.miMascota.edad = this.userform.value.edad;
     this.miMascota.tipo = this.userform.value.tipo;
-
-    //aca cambiar y poner el id del dueño
-    this.miMascota.id_duenio = 1;
 
     this.miServicioMascota.agregarMascota(this.miMascota)
       .then(data => {
