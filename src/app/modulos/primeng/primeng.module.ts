@@ -14,6 +14,8 @@ import { PanelModule } from 'primeng/panel';
 import { TableModule } from 'primeng/table';
 import { DropdownModule } from 'primeng/dropdown';
 import { SelectButtonModule } from 'primeng/selectbutton';
+import { CalendarModule } from 'primeng/calendar';
+import {InputTextareaModule} from 'primeng/inputtextarea';
 
 @NgModule({
   imports: [
@@ -30,7 +32,9 @@ import { SelectButtonModule } from 'primeng/selectbutton';
     PanelModule,
     TableModule,
     DropdownModule,
-    SelectButtonModule
+    SelectButtonModule,
+    CalendarModule,
+    InputTextareaModule
   ],
   exports: [
     CommonModule,
@@ -46,7 +50,9 @@ import { SelectButtonModule } from 'primeng/selectbutton';
     PanelModule,
     TableModule,
     DropdownModule,
-    SelectButtonModule
+    SelectButtonModule,
+    CalendarModule,
+    InputTextareaModule
   ],
   declarations: []
 })

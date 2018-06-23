@@ -1,4 +1,11 @@
 <p>
   turno works!
 </p>
-{{unaMascota.nombre}}
+<div class="ui-g-12 ui-md-4">
+  <h3>Time</h3>
+  <p-calendar [(ngModel)]="date" [showTime]="true"></p-calendar>
+</div>
+<br>
+<textarea [rows]="5" [cols]="30" pInputTextarea autoResize="autoResize" [(ngModel)]="observaciones"></textarea>
+<br>
+<button pButton type="button" (click)="confirmarTurno()" icon="pi pi-check" label="Confirmar turno para {{unaMascota.nombre}}"></button>
