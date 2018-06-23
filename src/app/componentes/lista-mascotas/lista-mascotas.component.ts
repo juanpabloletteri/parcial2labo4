@@ -36,7 +36,7 @@ export class ListaMascotasComponent implements OnInit {
     }
     //si es tipo cliente relleno la tabla solo con las mascotas q corrsponden a su id
     if (this.tipo == 2) {
-      this.miServicioMascota.traerMascotaPorId(this.id_cliente)
+      this.miServicioMascota.traerMascotasPorDuenio(this.id_cliente)
         .then(data => {
           this.datosTabla = data;
         })

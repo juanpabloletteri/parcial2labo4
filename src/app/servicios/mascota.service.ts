@@ -75,6 +75,13 @@ export class MascotaService {
         return data;
       })
   }
+  traerMascotasPorDuenio(data): Promise<any> {
+    return this.miHttp.httpPostP('traerMascotasPorDuenio', { id: data })
+      .then(data => {
+        console.log(data);
+        return data;
+      })
+  }
   modificarMascota(data): Promise<any> {
     return this.miHttp.httpPostP('modificarMascota', data)
       .then(data => {
