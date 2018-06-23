@@ -18,6 +18,7 @@ export class ListaMascotasComponent implements OnInit {
 
   tipo: number;
   id_cliente: number;
+  tipoMascota: any;
 
   constructor(private miMascota: Mascota, private miServicioMascota: MascotaService,
     private miUsuario: Usuario, private miServicioUsuario: UsuarioService) {
@@ -50,6 +51,11 @@ export class ListaMascotasComponent implements OnInit {
       { field: 'color', header: 'Color' },
       { field: 'edad', header: 'Edad' },
       { field: 'tipo', header: 'Tipo' }
+    ];
+    this.tipoMascota = [
+      { label: 'Ver Todos', value: null },
+      { label: 'Gato', value: '100' },
+      { label: 'Perro', value: '200' },
     ];
   }
 

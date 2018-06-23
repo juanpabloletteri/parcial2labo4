@@ -7,10 +7,12 @@ import { HttpModule } from '@angular/http';
 //CLASES
 import { Mascota } from './clases/mascota';
 import { Usuario } from './clases/usuario';
+import { Turno } from './clases/turno';
 //SERVICIOS
 import { MascotaService } from './servicios/mascota.service';
 import { UsuarioService } from './servicios/usuario.service';
 import { LoginService } from './servicios/login.service';
+import { TurnoService } from './servicios/turno.service';
 //MODULO PRIME NG
 import { PrimengModule } from './modulos/primeng/primeng.module';
 //MODULO ROUTEO
@@ -109,6 +111,8 @@ const config: Routes = [
     Mascota,
     MascotaService,
     Usuario,
+    TurnoService,
+    Turno,
     UsuarioService,
     LoginService
   ],

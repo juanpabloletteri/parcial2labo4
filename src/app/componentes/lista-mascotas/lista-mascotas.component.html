@@ -20,20 +20,18 @@
 
       <ng-template pTemplate="header" let-columns>
         <tr>
-          <th *ngFor="let col of columns">
+          <th *ngFor="let col of columns" [pSortableColumn]="col.field">
             {{col.header}}
+            <p-sortIcon [field]="col.field"></p-sortIcon>
           </th>
         </tr>
 
-        <!--
-          <tr>
+        <tr>
             <th *ngFor="let col of columns" [ngSwitch]="col.field">
-              <p-dropdown *ngSwitchCase="'fumar'" [options]="fumar" [style]="{'width':'100%'}" (onChange)="dt.filter($event.value, col.field, 'equals')"></p-dropdown>
-              <p-dropdown *ngSwitchCase="'aire'" [options]="aire" [style]="{'width':'100%'}" (onChange)="dt.filter($event.value, col.field, 'equals')"></p-dropdown>
-              <p-dropdown *ngSwitchCase="'baul'" [options]="baul" [style]="{'width':'100%'}" (onChange)="dt.filter($event.value, col.field, 'equals')"></p-dropdown>
+              <p-dropdown *ngSwitchCase="'tipo'" [options]="tipoMascota" [style]="{'width':'100%'}" (onChange)="dt.filter($event.value, col.field, 'equals')"></p-dropdown>
             </th>
           </tr>
-          -->
+          
       </ng-template>
 
       <ng-template pTemplate="body" let-rowData let-columns="columns">
