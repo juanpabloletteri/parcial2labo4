@@ -41,11 +41,31 @@ const config: Routes = [
   ////////////
   {
     path: 'admin',
-    component: AdminComponent
+    component: AdminComponent,
+    children: [
+      {
+        path: 'alta',
+        component: AltaMascotaComponent,
+      },
+      {
+        path: 'listamascota',
+        component: ListaMascotasComponent
+      }
+    ]
   },
   {
     path: 'cliente',
-    component: ClienteComponent
+    component: ClienteComponent,
+    children: [
+      {
+        path: 'alta',
+        component: AltaMascotaComponent,
+      },
+      {
+        path: 'listamascota',
+        component: ListaMascotasComponent
+      }
+    ]
   },
   /////////////////
   {

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MenuItem } from 'primeng/api';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cliente',
@@ -7,9 +9,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClienteComponent implements OnInit {
 
-  constructor() { }
+  private items: MenuItem[];
+
+  constructor(public rute: Router) { }
 
   ngOnInit() {
+    this.items = [
+      {
+        label: 'Agregar Mascota',
+        icon: 'fa-edit',
+        command: (click) => { this.rute.navigate(['cliente/alta']) }
+      },
+      {
+        label: 'Lista de Mascotas',
+        icon: 'fa-edit',
+        command: (click) => { this.rute.navigate(['cliente/listamascota']) }
+      }
+    ];
   }
 
+  salir() {
+    localStorage.removeItem('token');
+    this.rute.navigate(['']);
+  }
 }
