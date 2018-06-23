@@ -7,7 +7,7 @@
 
   <div class="ui-g-12 ui-md-10 ui-lg-6">
 
-    <h3 class="first">Seleccion de Mascotas</h3>
+    <h3 class="first">Lista de Mascotas</h3>
     <p-table #dt [columns]="cols" [value]="datosTabla" [paginator]="true" [rows]="10" selectionMode="single" [(selection)]="mascotaSeleccionada"
       (onRowSelect)="onRowSelect($event)">
       <ng-template pTemplate="caption">
@@ -50,6 +50,11 @@
       </h3>
     </div>
 
+    <div *ngIf="miUsuario.nombre&&tipo==2">
+      <br>
+      <br>
+      <button pButton type="button" (click)="solicitarTurno()" icon="pi pi-check" label="Solicitar turno para {{mascotaSeleccionada.nombre}}"></button>
+    </div>
 
   </div>
 

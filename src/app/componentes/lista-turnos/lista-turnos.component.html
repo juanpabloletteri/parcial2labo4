@@ -7,7 +7,7 @@
 
   <div class="ui-g-12 ui-md-10 ui-lg-6">
 
-    <h3 class="first">Seleccion de Turnos</h3>
+    <h3 class="first">Lista de Turnos</h3>
     <p-table #dt [columns]="cols" [value]="datosTabla" [paginator]="true" [rows]="10" selectionMode="single" [(selection)]="turnoSeleccionado"
       (onRowSelect)="onRowSelect($event)">
       <ng-template pTemplate="caption">
@@ -44,7 +44,7 @@
     </p-table>
 
 
-    <div *ngIf="miUsuario.nombre">
+    <div *ngIf="miUsuario.nombre&&tipo==1">
       <h3> Nombre y Apellido Dueño:{{miUsuario.nombre}} {{miUsuario.apellido}}
         <br> Mail: {{miUsuario.mail}}
       </h3>

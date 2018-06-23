@@ -50,8 +50,8 @@ export class TurnoService {
         return data;
       })
   }
-  traerTurnoPorId(data): Promise<any> {
-    return this.miHttp.httpPostP('traerTurnoPorId', { id: data })
+  traerTurnoPorIdDuenio(data): Promise<any> {
+    return this.miHttp.httpPostP('traerTurnoPorIdDuenio', { id: data })
       .then(data => {
         console.log(data);
         return data;

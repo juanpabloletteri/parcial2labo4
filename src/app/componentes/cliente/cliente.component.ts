@@ -24,6 +24,11 @@ export class ClienteComponent implements OnInit {
         label: 'Lista de Mascotas',
         icon: 'fa-edit',
         command: (click) => { this.rute.navigate(['cliente/listamascota']) }
+      },
+      {
+        label: 'Lista de Turnos',
+        icon: 'fa-edit',
+        command: (click) => { this.rute.navigate(['cliente/listaturnos']) }
       }
     ];
   }

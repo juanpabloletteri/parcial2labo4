@@ -65,7 +65,10 @@ export class ListaMascotasComponent implements OnInit {
         //console.log("data: " + data)
         this.miUsuario = data[0];
       })
+  }
 
+  solicitarTurno() {
+    alert("turno");
   }
 
 }
