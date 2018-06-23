@@ -16,6 +16,11 @@ export class AdminComponent implements OnInit {
   ngOnInit() {
     this.items = [
       {
+        label: 'Alta Usuario',
+        icon: 'fa-edit',
+        command: (click) => { this.rute.navigate(['admin/altausuario']) }
+      },  
+      {
         label: 'Agregar Mascota',
         icon: 'fa-edit',
         command: (click) => { this.rute.navigate(['admin/alta']) }
@@ -29,11 +34,6 @@ export class AdminComponent implements OnInit {
         label: 'Lista de Turnos',
         icon: 'fa-edit',
         command: (click) => { this.rute.navigate(['admin/listaturnos']) }
-      },
-      {
-        label: 'Alta Usuario',
-        icon: 'fa-edit',
-        command: (click) => { this.rute.navigate(['admin/altausuario']) }
       }
     ];
   }

@@ -1,9 +1,6 @@
-<p>
-  cliente works!
-</p>
 <p-menubar [model]="items">
   <input type="text" pInputText placeholder="Buscar">
-  <button pButton label="Salir" icon="fa-sign-out"></button>
+  <button pButton label="Salir" (click)="salir()" icon="fa-sign-out"></button>
 </p-menubar>
 
 <router-outlet></router-outlet>
