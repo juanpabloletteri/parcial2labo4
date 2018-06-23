@@ -67,7 +67,8 @@ export class ListaTurnosComponent implements OnInit {
   }
 
   onRowSelect(event) {
-    this.miServicioUsuario.traerUsuarioPorId(this.turnosSeleccionados[0].id_duenio)
+    let cantidad = this.turnosSeleccionados.length - 1;
+    this.miServicioUsuario.traerUsuarioPorId(this.turnosSeleccionados[cantidad].id_duenio)
       .then(data => {
         //console.log("data: " + data)
         this.miUsuario = data[0];
