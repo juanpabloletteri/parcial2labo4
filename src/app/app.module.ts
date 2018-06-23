@@ -10,6 +10,7 @@ import { Usuario } from './clases/usuario';
 //SERVICIOS
 import { MascotaService } from './servicios/mascota.service';
 import { UsuarioService } from './servicios/usuario.service';
+import { LoginService } from './servicios/login.service';
 //MODULO PRIME NG
 import { PrimengModule } from './modulos/primeng/primeng.module';
 //MODULO ROUTEO
@@ -74,7 +75,8 @@ const config: Routes = [
     Mascota,
     MascotaService,
     Usuario,
-    UsuarioService
+    UsuarioService,
+    LoginService
   ],
   bootstrap: [AppComponent]
 })
