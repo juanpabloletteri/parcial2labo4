@@ -39,49 +39,49 @@ export class TurnoService {
   traerTodosLosTurnos(): Promise<any> {
     return this.miHttp.httpGetP('traerTodosLosTurnos')
       .then(data => {
-        console.log(data);
+       
         return data;
       })
   }
   agregarTurno(data): Promise<any> {
     return this.miHttp.httpPostP('agregarTurno', data)
       .then(data => {
-        console.log(data);
+       
         return data;
       })
   }
   traerTurnoPorIdDuenio(data): Promise<any> {
     return this.miHttp.httpPostP('traerTurnoPorIdDuenio', { id: data })
       .then(data => {
-        console.log(data);
+       
         return data;
       })
   }
   traerTurnosPorMascota(data): Promise<any> {
     return this.miHttp.httpPostP('traerTurnosPorMascota', { id: data })
       .then(data => {
-        console.log(data);
+       
         return data;
       })
   }
   traerTurnosPorTipoDeMascota(data): Promise<any> {
     return this.miHttp.httpPostP('traerTurnosPorTipoDeMascota', { tipo: data })
       .then(data => {
-        console.log(data);
+       
         return data;
       })
   }
   modificarTurno(data): Promise<any> {
     return this.miHttp.httpPostP('modificarTurno', data)
       .then(data => {
-        console.log(data);
+       
         return data;
       })
   }
   borrarTurno(data): Promise<any> {
     return this.miHttp.httpPostP('borrarTurno', data)
       .then(data => {
-        console.log(data);
+       
         return data;
       })
   }

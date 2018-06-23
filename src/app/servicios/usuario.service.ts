@@ -51,35 +51,35 @@ export class UsuarioService {
   traerTodosLosUsuarios(): Promise<any> {
     return this.miHttp.httpGetP('traerTodosLosUsuarios')
       .then(data => {
-        console.log(data);
+       
         return data;
       })
   }
   agregarUsuario(data): Promise<any> {
     return this.miHttp.httpPostP('agregarUsuario', data)
       .then(data => {
-        console.log(data);
+       
         return data;
       })
   }
   traerUsuarioPorId(data): Promise<any> {
     return this.miHttp.httpPostP('traerUsuarioPorId', { id: data })
       .then(data => {
-        console.log(data);
+       
         return data;
       })
   }
   modificarUsuario(data): Promise<any> {
     return this.miHttp.httpPostP('modificarUsuario', data)
       .then(data => {
-        console.log(data);
+       
         return data;
       })
   }
   borrarUsuario(data): Promise<any> {
     return this.miHttp.httpPostP('borrarUsuario', data)
       .then(data => {
-        console.log(data);
+       
         return data;
       })
   }

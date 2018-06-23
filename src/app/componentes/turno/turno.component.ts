@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Mascota } from '../../clases/mascota';
 import { Turno } from '../../clases/turno';
 import { TurnoService } from '../../servicios/turno.service';
+import { Router } from '@angular/router';
 import swal from 'sweetalert2';
 
 @Component({
@@ -14,7 +15,7 @@ export class TurnoComponent implements OnInit {
   @Input() unaMascota: Mascota;
   date: Date;
   observaciones: string;
-  constructor(private miTurno: Turno, private miServicioTurno: TurnoService) { }
+  constructor(private miTurno: Turno, private miServicioTurno: TurnoService, private rute: Router) { }
 
   ngOnInit() {
   }
@@ -31,6 +32,7 @@ export class TurnoComponent implements OnInit {
           'Turno generado con exito para ' + this.unaMascota.nombre + "!",
           'success'
         )
+        this.rute.navigate(['cliente']);
       })
   }
 

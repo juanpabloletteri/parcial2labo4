@@ -57,42 +57,42 @@ export class MascotaService {
   traerTodasLasMascotas(): Promise<any> {
     return this.miHttp.httpGetP('traerTodasLasMascotas')
       .then(data => {
-        console.log(data);
+       
         return data;
       })
   }
   agregarMascota(data): Promise<any> {
     return this.miHttp.httpPostP('agregarMascota', data)
       .then(data => {
-        console.log(data);
+       
         return data;
       })
   }
   traerMascotaPorId(data): Promise<any> {
     return this.miHttp.httpPostP('traerMascotaPorId', { id: data })
       .then(data => {
-        console.log(data);
+       
         return data;
       })
   }
   traerMascotasPorDuenio(data): Promise<any> {
     return this.miHttp.httpPostP('traerMascotasPorDuenio', { id: data })
       .then(data => {
-        console.log(data);
+       
         return data;
       })
   }
   modificarMascota(data): Promise<any> {
     return this.miHttp.httpPostP('modificarMascota', data)
       .then(data => {
-        console.log(data);
+       
         return data;
       })
   }
   borrarMascota(data): Promise<any> {
     return this.miHttp.httpPostP('borrarMascota', data)
       .then(data => {
-        console.log(data);
+       
         return data;
       })
   }

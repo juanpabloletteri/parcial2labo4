@@ -50,6 +50,7 @@ export class AltaMascotaComponent implements OnInit {
           'Mascota agregada correctamente!',
           'success'
         )
+        this.userform.reset();
         //this.rute.navigate(['']); //aca llevar a componente cliente
       })
   }

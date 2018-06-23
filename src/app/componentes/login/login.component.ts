@@ -29,7 +29,6 @@ export class LoginComponent implements OnInit {
     this.miUsuario.mail = this.userform.value.mail;
     this.miUsuario.password = this.userform.value.password;
     //alert("hacer logica de login");
-    console.log(this.miUsuario);
     this.miServicioLogin.verificarusuario(this.miUsuario)
       .then(data => {
         if (data == "error") {
@@ -43,7 +42,6 @@ export class LoginComponent implements OnInit {
           let pay2 = payload.replace('-', '+').replace('_', '/');
           let datos = JSON.parse(atob(pay2));
           //cargo datos en servicio usuario
-          console.log(datos)
           this.miServicioUsuario.setIdUsuario(datos['data']['id_usuario']);
           this.miServicioUsuario.setTipo(datos['data']['tipo']);
           //verifico donde redirijo
