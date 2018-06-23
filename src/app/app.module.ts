@@ -30,6 +30,7 @@ import { EdadPipe } from './pipes/edad.pipe';
 import { TipoPipe } from './pipes/tipo.pipe';
 import { ClienteComponent } from './componentes/cliente/cliente.component';
 import { AdminComponent } from './componentes/admin/admin.component';
+import { TurnoComponent } from './componentes/turno/turno.component';
 //ROUTEO
 const config: Routes = [
   {
@@ -103,7 +104,8 @@ const config: Routes = [
     EdadPipe,
     TipoPipe,
     ClienteComponent,
-    AdminComponent
+    AdminComponent,
+    TurnoComponent
   ],
   imports: [
     BrowserModule,

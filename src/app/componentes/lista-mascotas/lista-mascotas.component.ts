@@ -20,6 +20,8 @@ export class ListaMascotasComponent implements OnInit {
   id_cliente: number;
   tipoMascota: any;
 
+  visible: boolean = false;
+
   constructor(private miMascota: Mascota, private miServicioMascota: MascotaService,
     private miUsuario: Usuario, private miServicioUsuario: UsuarioService) {
 
@@ -68,7 +70,7 @@ export class ListaMascotasComponent implements OnInit {
   }
 
   solicitarTurno() {
-    alert("turno");
+    this.visible = true;
   }
 
 }
