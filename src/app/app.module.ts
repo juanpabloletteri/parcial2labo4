@@ -84,19 +84,6 @@ const config: Routes = [
         component: ListaTurnosComponent
       }
     ]
-  },
-  /////////////////
-  {
-    path: 'alta',
-    component: AltaMascotaComponent
-  },
-  {
-    path: 'listamascota',
-    component: ListaMascotasComponent
-  },
-  {
-    path: 'listaturnos',
-    component: ListaTurnosComponent
   }
 ]
 

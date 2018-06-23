@@ -57,4 +57,8 @@ export class LoginComponent implements OnInit {
       })
   }
 
+  registrar() {
+    this.rute.navigate(['registro']);
+  }
+
 }
