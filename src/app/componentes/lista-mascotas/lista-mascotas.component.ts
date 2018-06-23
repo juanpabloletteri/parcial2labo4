@@ -16,14 +16,32 @@ export class ListaMascotasComponent implements OnInit {
   titulo: string;
   mascotaSeleccionada: Mascota;
 
+  tipo: number;
+  id_cliente: number;
+
   constructor(private miMascota: Mascota, private miServicioMascota: MascotaService,
-    private miUsuario: Usuario, private miServicioUsuario: UsuarioService) { }
+    private miUsuario: Usuario, private miServicioUsuario: UsuarioService) {
+
+    this.tipo = this.miServicioUsuario.getTipo();
+    this.id_cliente = this.miServicioUsuario.getIdUsuario();
+  }
 
   ngOnInit() {
-    this.miServicioMascota.traerTodasLasMascotas()
-      .then(data => {
-        this.datosTabla = data;
-      })
+    /////si es tipo admin ve todas las mascotas y relleno la tabla con todas las mascotas
+    if (this.tipo == 1) {
+      this.miServicioMascota.traerTodasLasMascotas()
+        .then(data => {
+          this.datosTabla = data;
+        })
+    }
+    //si es tipo cliente relleno la tabla solo con las mascotas q corrsponden a su id
+    if (this.tipo == 2) {
+      this.miServicioMascota.traerMascotaPorId(this.id_cliente)
+        .then(data => {
+          this.datosTabla = data;
+        })
+    }
+
     /////////
     this.titulo = 'MASCOTAS';
     this.cols = [
