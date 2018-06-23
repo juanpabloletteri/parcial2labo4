@@ -55,7 +55,7 @@
     <!--
       <button (click)="confirmarVehiculo()">Confirmar Vehiculo</button>
      -->
-    <div *ngIf="miUsuario">
+    <div *ngIf="miUsuario&&tipo==1">
       <h3> Nombre y Apellido Dueño: {{miUsuario.nombre}} {{miUsuario.apellido}}</h3>
     </div>
 
