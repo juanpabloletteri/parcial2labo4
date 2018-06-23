@@ -26,6 +26,8 @@ import { ListaMascotasComponent } from './componentes/lista-mascotas/lista-masco
 import { ListaTurnosComponent } from './componentes/lista-turnos/lista-turnos.component';
 import { EdadPipe } from './pipes/edad.pipe';
 import { TipoPipe } from './pipes/tipo.pipe';
+import { ClienteComponent } from './componentes/cliente/cliente.component';
+import { AdminComponent } from './componentes/admin/admin.component';
 //ROUTEO
 const config: Routes = [
   {
@@ -36,6 +38,16 @@ const config: Routes = [
     path: 'registro',
     component: RegistroComponent
   },
+  ////////////
+  {
+    path: 'admin',
+    component: AdminComponent
+  },
+  {
+    path: 'cliente',
+    component: ClienteComponent
+  },
+  /////////////////
   {
     path: 'alta',
     component: AltaMascotaComponent
@@ -59,7 +71,9 @@ const config: Routes = [
     ListaMascotasComponent,
     ListaTurnosComponent,
     EdadPipe,
-    TipoPipe
+    TipoPipe,
+    ClienteComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,

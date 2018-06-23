@@ -36,10 +36,24 @@ export class LoginComponent implements OnInit {
           swal("Usuario o contraseña no validas");
         }
         else {
-          console.log(data);
+          //guardo token en local storage
           localStorage.setItem('token', data);
+          //decodifico token
+          let payload = data.split('.')[1];
+          let pay2 = payload.replace('-', '+').replace('_', '/');
+          let datos = JSON.parse(atob(pay2));
+          //cargo datos en servicio usuario
+          console.log(datos)
+          this.miServicioUsuario.setIdUsuario(datos['data']['id_usuario']);
+          this.miServicioUsuario.setTipo(datos['data']['tipo']);
+          //verifico donde redirijo
+          if (datos['data']['tipo'] == 1) {
+            this.rute.navigate(['admin']);
+          }
+          else if (datos['data']['tipo'] == 2) {
+            this.rute.navigate(['cliente']);
+          }
         }
-
       })
   }
 
