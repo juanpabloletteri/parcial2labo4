@@ -52,6 +52,10 @@ const config: Routes = [
       {
         path: 'listamascota',
         component: ListaMascotasComponent
+      },
+      {
+        path: 'listaturnos',
+        component: ListaTurnosComponent
       }
     ]
   },

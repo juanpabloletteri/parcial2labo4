@@ -24,7 +24,13 @@ export class AdminComponent implements OnInit {
         label: 'Lista de Mascotas',
         icon: 'fa-edit',
         command: (click) => { this.rute.navigate(['admin/listamascota']) }
+      },
+      {
+        label: 'Lista de Turnos',
+        icon: 'fa-edit',
+        command: (click) => { this.rute.navigate(['admin/listaturnos']) }
       }
+      
     ];
   }
 

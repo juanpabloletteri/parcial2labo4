@@ -27,11 +27,11 @@
         </tr>
 
         <tr>
-            <th *ngFor="let col of columns" [ngSwitch]="col.field">
-              <p-dropdown *ngSwitchCase="'tipo'" [options]="tipoMascota" [style]="{'width':'100%'}" (onChange)="dt.filter($event.value, col.field, 'equals')"></p-dropdown>
-            </th>
-          </tr>
-          
+          <th *ngFor="let col of columns" [ngSwitch]="col.field">
+            <p-dropdown *ngSwitchCase="'tipo'" [options]="tipoMascota" [style]="{'width':'100%'}" (onChange)="dt.filter($event.value, col.field, 'equals')"></p-dropdown>
+          </th>
+        </tr>
+
       </ng-template>
 
       <ng-template pTemplate="body" let-rowData let-columns="columns">
@@ -44,17 +44,10 @@
       </ng-template>
     </p-table>
 
-    <div *ngIf="mascotaSeleccionada">
-      <h3>Nombre: {{mascotaSeleccionada.nombre}}
-        <br> Raza: {{mascotaSeleccionada.raza}}
-        <br> Edad: {{mascotaSeleccionada.edad}}</h3>
-    </div>
-
-    <!--
-      <button (click)="confirmarVehiculo()">Confirmar Vehiculo</button>
-     -->
-    <div *ngIf="miUsuario&&tipo==1">
-      <h3> Nombre y Apellido Dueño: {{miUsuario.nombre}} {{miUsuario.apellido}}</h3>
+    <div *ngIf="miUsuario.nombre&&tipo==1">
+      <h3> Nombre y Apellido Dueño: {{miUsuario.nombre}} {{miUsuario.apellido}}
+        <br> Mail: {{miUsuario.mail}}
+      </h3>
     </div>
 
 
