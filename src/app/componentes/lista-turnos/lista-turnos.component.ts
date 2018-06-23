@@ -20,17 +20,19 @@ export class ListaTurnosComponent implements OnInit {
   mascotaSeleccionada: Mascota;
   usuarioSeleccionado: Usuario;
 
+  turnosSeleccionados: any[];
+
   tipo: number;
   id_cliente: number;
   tipoMascota: any;
 
   constructor(private miTurno: Turno, private miServicioTurno: TurnoService, private miMascota: Mascota,
-    private miServicioMascota: MascotaService, private miUsuario: Usuario, private miServicioUsuario: UsuarioService) { 
+    private miServicioMascota: MascotaService, private miUsuario: Usuario, private miServicioUsuario: UsuarioService) {
 
-      this.tipo = this.miServicioUsuario.getTipo();
-      this.id_cliente = this.miServicioUsuario.getIdUsuario();
+    this.tipo = this.miServicioUsuario.getTipo();
+    this.id_cliente = this.miServicioUsuario.getIdUsuario();
 
-    }
+  }
 
   ngOnInit() {
     ///////////////
@@ -65,7 +67,7 @@ export class ListaTurnosComponent implements OnInit {
   }
 
   onRowSelect(event) {
-    this.miServicioUsuario.traerUsuarioPorId(this.turnoSeleccionado.id_duenio)
+    this.miServicioUsuario.traerUsuarioPorId(this.turnosSeleccionados[0].id_duenio)
       .then(data => {
         //console.log("data: " + data)
         this.miUsuario = data[0];

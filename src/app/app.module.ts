@@ -57,6 +57,10 @@ const config: Routes = [
       {
         path: 'listaturnos',
         component: ListaTurnosComponent
+      },
+      {
+        path: 'altausuario',
+        component: RegistroComponent
       }
     ]
   },

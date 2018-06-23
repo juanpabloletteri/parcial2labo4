@@ -8,14 +8,25 @@
   <div class="ui-g-12 ui-md-10 ui-lg-6">
 
     <h3 class="first">Lista de Turnos</h3>
-    <p-table #dt [columns]="cols" [value]="datosTabla" [paginator]="true" [rows]="10" selectionMode="single" [(selection)]="turnoSeleccionado"
+    <p-table #dt [columns]="cols" [value]="datosTabla" [paginator]="true" [rows]="10" selectionMode="multiple" [(selection)]="turnosSeleccionados"
       (onRowSelect)="onRowSelect($event)">
+
       <ng-template pTemplate="caption">
+
         <div style="text-align: right">
           <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
           <input type="text" pInputText size="50" placeholder="Buscador" (input)="dt.filterGlobal($event.target.value, 'contains')"
             style="width:auto">
         </div>
+        <br>
+
+        <div class="ui-helper-clearfix">
+          <button type="button" pButton icon="fa fa-file-o" iconPos="left" label="Todos" (click)="dt.exportCSV()" style="float:left"></button>
+          <button type="button" pButton icon="fa fa-file" iconPos="left" label="Seleccionados" (click)="dt.exportCSV({selectionOnly:true})"
+            style="float:right"></button>
+        </div>
+        <br>
+
       </ng-template>
 
       <ng-template pTemplate="header" let-columns>
@@ -26,12 +37,12 @@
           </th>
         </tr>
 
-          <tr>
-            <th *ngFor="let col of columns" [ngSwitch]="col.field">
-              <p-dropdown *ngSwitchCase="'tipo'" [options]="tipoMascota" [style]="{'width':'100%'}" (onChange)="dt.filter($event.value, col.field, 'equals')"></p-dropdown>
-            </th>
-          </tr>
-        
+        <tr>
+          <th *ngFor="let col of columns" [ngSwitch]="col.field">
+            <p-dropdown *ngSwitchCase="'tipo'" [options]="tipoMascota" [style]="{'width':'100%'}" (onChange)="dt.filter($event.value, col.field, 'equals')"></p-dropdown>
+          </th>
+        </tr>
+
       </ng-template>
 
       <ng-template pTemplate="body" let-rowData let-columns="columns">

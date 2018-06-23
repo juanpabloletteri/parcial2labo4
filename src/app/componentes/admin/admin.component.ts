@@ -29,8 +29,12 @@ export class AdminComponent implements OnInit {
         label: 'Lista de Turnos',
         icon: 'fa-edit',
         command: (click) => { this.rute.navigate(['admin/listaturnos']) }
+      },
+      {
+        label: 'Alta Usuario',
+        icon: 'fa-edit',
+        command: (click) => { this.rute.navigate(['admin/altausuario']) }
       }
-      
     ];
   }
 
