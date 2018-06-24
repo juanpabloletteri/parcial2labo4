@@ -48,6 +48,7 @@ export class ListaMascotasComponent implements OnInit {
     /////////
     this.titulo = 'MASCOTAS';
     this.cols = [
+      { field: 'id_mascota', header: 'N° Ficha' },
       { field: 'nombre', header: 'Nombre' },
       { field: 'raza', header: 'Raza' },
       { field: 'color', header: 'Color' },
