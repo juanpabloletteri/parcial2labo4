@@ -53,6 +53,7 @@ export class ListaTurnosComponent implements OnInit {
     ///////////////////
     this.titulo = 'TURNOS';
     this.cols = [
+      { field: 'id_mascota', header: 'N° Ficha' },
       { field: 'nombre', header: 'Nombre' },
       { field: 'raza', header: 'Raza' },
       { field: 'tipo', header: 'Tipo' },
