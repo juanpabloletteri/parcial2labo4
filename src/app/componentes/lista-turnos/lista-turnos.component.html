@@ -1,6 +1,11 @@
 <div class="ui-g">
   <div class="ui-g-12 ui-md-4 ui-lg-2"></div>
 
+  <div *ngIf="datosTabla==null">
+    <h3>Cargando {{titulo}}</h3>
+    <p-progressSpinner> </p-progressSpinner>
+  </div>
+  
   <div class="ui-g-12 ui-md-10 ui-lg-8">
 
     <h3 class="first">Lista de Turnos</h3>
