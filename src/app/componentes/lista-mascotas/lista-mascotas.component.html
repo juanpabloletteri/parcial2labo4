@@ -6,7 +6,7 @@
     <p-progressSpinner> </p-progressSpinner>
   </div>
 
-  <div class="ui-g-12 ui-md-10 ui-lg-8">
+  <div class="ui-g-12 ui-md-10 ui-lg-8" *ngIf="datosTabla!=null">
 
     <h3 class="first">Lista de Mascotas</h3>
     <p-table #dt [columns]="cols" [value]="datosTabla" [paginator]="true" [rows]="10" selectionMode="single" [(selection)]="mascotaSeleccionada"
