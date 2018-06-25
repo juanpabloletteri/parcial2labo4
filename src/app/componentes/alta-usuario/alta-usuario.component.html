@@ -1,7 +1,10 @@
+<p>
+  alta-usuario works!
+</p>
 <div class="ui-g">
-  <div class="ui-g-12 ui-md-4 ui-lg-4"></div>
-  <div class="ui-g-12 ui-md-4 ui-lg-4">
-    <br><br><br><br><br><br>
+  <div class="ui-g-12 ui-md-4 ui-lg-3"></div>
+  <div class="ui-g-12 ui-md-10 ui-lg-6">
+
     <form [formGroup]="userform" (ngSubmit)="onSubmit(userform.value)">
       <p-panel header="Registro de Cliente">
         <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">
@@ -82,12 +85,29 @@
           </div>
 
           <div class="ui-grid-row">
+            <div class="ui-grid-col-2">
+              Tipo *:
+            </div>
+            <div class="ui-grid-col-6">
+              <p-selectButton [options]="types" formControlName="tipo"></p-selectButton>
+            </div>
+
+            <div class="ui-grid-col-4">
+              <div class="ui-message ui-messages-error ui-corner-all" *ngIf="!userform.controls['tipo'].valid&&userform.controls['tipo'].dirty">
+                <i class="fa fa-close"></i>
+                Campo Obligatorio
+              </div>
+            </div>
+
+          </div>
+
+          <div class="ui-grid-row">
             <div class="ui-grid-col-2"></div>
             <div class="ui-grid-col-6">
               <button pButton type="submit" label="Agregar" [disabled]="!userform.valid"></button>
               <br>
               <br>
-              <button pButton type="button" (click)="ingresar()" label="Ingresar" class="ui-button-success" *ngIf="!tipo" ></button>
+              <button pButton type="button" (click)="ingresar()" label="Ingresar" class="ui-button-success" *ngIf="!tipo"></button>
             </div>
             <div class="ui-grid-col-4"></div>
           </div>
@@ -97,5 +117,5 @@
     </form>
 
   </div>
-  <div class="ui-g-12 ui-md-4 ui-lg-4"></div>
+  <div class="ui-g-12 ui-md-4 ui-lg-3"></div>
 </div>

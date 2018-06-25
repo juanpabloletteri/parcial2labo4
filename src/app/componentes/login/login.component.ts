@@ -15,6 +15,8 @@ export class LoginComponent implements OnInit {
 
   algo: any;
   userform: FormGroup;
+  tablaUsuarios: any;
+  titulo: string;
 
   constructor(private fb: FormBuilder, private miUsuario: Usuario, private miServicioUsuario: UsuarioService, public rute: Router, private miServicioLogin: LoginService) { }
 
@@ -57,6 +59,22 @@ export class LoginComponent implements OnInit {
 
   registrar() {
     this.rute.navigate(['registro']);
+  }
+
+  admin() {
+    this.miServicioUsuario.traerUsuarioPorTipo(1)
+      .then(data => {
+        this.titulo = 'Administradores';
+        this.tablaUsuarios = data;
+      })
+  }
+
+  cliente() {
+    this.miServicioUsuario.traerUsuarioPorTipo(2)
+      .then(data => {
+        this.titulo = 'Clientes';
+        this.tablaUsuarios = data;
+      })
   }
 
 }

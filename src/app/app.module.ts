@@ -32,6 +32,7 @@ import { TipoPipe } from './pipes/tipo.pipe';
 import { ClienteComponent } from './componentes/cliente/cliente.component';
 import { AdminComponent } from './componentes/admin/admin.component';
 import { TurnoComponent } from './componentes/turno/turno.component';
+import { AltaUsuarioComponent } from './componentes/alta-usuario/alta-usuario.component';
 //ROUTEO
 const config: Routes = [
   {
@@ -62,7 +63,7 @@ const config: Routes = [
       },
       {
         path: 'altausuario',
-        component: RegistroComponent
+        component: AltaUsuarioComponent
       }
     ]
   },
@@ -99,7 +100,8 @@ const config: Routes = [
     TipoPipe,
     ClienteComponent,
     AdminComponent,
-    TurnoComponent
+    TurnoComponent,
+    AltaUsuarioComponent
   ],
   imports: [
     BrowserModule,

@@ -54,7 +54,7 @@
     <div *ngIf="miUsuario.nombre&&tipo==2">
       <br>
       <br>
-      <button pButton type="button" (click)="solicitarTurno()" icon="pi pi-check" label="Solicitar turno para {{mascotaSeleccionada.nombre}}"></button>
+      <button pButton type="button" (click)="solicitarTurno()" icon="pi pi-check" label="Solicitar turno para {{mascotaSeleccionada.nombre}} " *ngIf="mascotaSeleccionada" ></button>
     </div>
 
   </div>

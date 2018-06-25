@@ -7,15 +7,14 @@ import { SelectItem } from 'primeng/api';
 import swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-registro',
-  templateUrl: './registro.component.html',
-  styleUrls: ['./registro.component.css']
+  selector: 'app-alta-usuario',
+  templateUrl: './alta-usuario.component.html',
+  styleUrls: ['./alta-usuario.component.css']
 })
-export class RegistroComponent implements OnInit {
+export class AltaUsuarioComponent implements OnInit {
 
   userform: FormGroup;
   types: SelectItem[];
-
 
   constructor(private fb: FormBuilder, private miUsuario: Usuario, private miServicioUsuario: UsuarioService, public rute: Router) {
 
@@ -31,7 +30,8 @@ export class RegistroComponent implements OnInit {
       'password': new FormControl('', Validators.compose([Validators.required, Validators.minLength(6)])),
       'password2': new FormControl('', Validators.compose([Validators.required, Validators.minLength(6)])),
       'nombre': new FormControl('', Validators.required),
-      'apellido': new FormControl('', Validators.required)
+      'apellido': new FormControl('', Validators.required),
+      'tipo': new FormControl('', Validators.required)
     });
   }
 
@@ -41,7 +41,7 @@ export class RegistroComponent implements OnInit {
       this.miUsuario.password = this.userform.value.password;
       this.miUsuario.nombre = this.userform.value.nombre;
       this.miUsuario.apellido = this.userform.value.apellido;
-      this.miUsuario.tipo = 2;
+      this.miUsuario.tipo = this.userform.value.tipo;
 
       this.miServicioUsuario.agregarUsuario(this.miUsuario)
         .then(data => {
@@ -50,7 +50,7 @@ export class RegistroComponent implements OnInit {
             'Usuario creado correctamente!',
             'success'
           )
-          this.rute.navigate(['']);
+          this.userform.reset();
         })
     }
     else {

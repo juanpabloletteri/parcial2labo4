@@ -69,6 +69,13 @@ export class UsuarioService {
         return data;
       })
   }
+  traerUsuarioPorTipo(data): Promise<any> {
+    return this.miHttp.httpPostP('traerUsuarioPorTipo', { tipo: data })
+      .then(data => {
+       
+        return data;
+      })
+  }
   modificarUsuario(data): Promise<any> {
     return this.miHttp.httpPostP('modificarUsuario', data)
       .then(data => {

@@ -14,7 +14,7 @@ export class ListaMascotasComponent implements OnInit {
   cols: any[];
   datosTabla: any = null;
   titulo: string;
-  mascotaSeleccionada: Mascota;
+  mascotaSeleccionada: Mascota = null;
 
   tipo: number;
   id_cliente: number;

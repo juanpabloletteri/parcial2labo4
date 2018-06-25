@@ -32,8 +32,6 @@ export class TurnoComponent implements OnInit {
       clear: 'Borrar'
     }
 
-
-
     let today = new Date();
     let month = today.getMonth();
     let year = today.getFullYear();
@@ -47,10 +45,20 @@ export class TurnoComponent implements OnInit {
     this.invalidDates = [today, invalidDate];
   }
 
+
   confirmarTurno() {
     this.miTurno.fecha = this.date;
     this.miTurno.id_mascota = this.unaMascota.id_mascota;
     this.miTurno.observaciones = this.observaciones;
+
+    if (!this.miTurno.fecha) {
+      swal("Falta ingresar fecha del turno");
+      return 1;
+    }
+    else if (!this.miTurno.observaciones) {
+      swal("Falta ingresar Observaciones del turno");
+      return 1;
+    }
 
     this.miServicioTurno.agregarTurno(this.miTurno)
       .then(data => {
