@@ -45,13 +45,26 @@ export class RegistroComponent implements OnInit {
 
       this.miServicioUsuario.agregarUsuario(this.miUsuario)
         .then(data => {
-          swal(
-            'Felicidades!',
-            'Usuario creado correctamente!',
-            'success'
-          )
-          this.rute.navigate(['']);
+          ////////MAIL DUPLICADO///////
+          if (data == "Mail en uso") {
+            swal({
+              type: 'error',
+              title: 'Oops...',
+              text: data,
+            })
+            return 1;
+          }
+          //////MAIL SIN USAR - CREA LA CUENTA////////
+          else {
+            swal(
+              'Felicidades!',
+              'Usuario creado correctamente!',
+              'success'
+            )
+            this.rute.navigate(['']);
+          }
         })
+      /////////
     }
     else {
       swal({
