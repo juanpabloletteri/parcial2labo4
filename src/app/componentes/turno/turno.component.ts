@@ -60,6 +60,14 @@ export class TurnoComponent implements OnInit {
       return 1;
     }
 
+    let dia: Date = new Date();
+    console.log(dia);
+    console.log(this.miTurno.fecha);
+    if (this.miTurno.fecha < dia) {
+      swal("Seleccione una fecha valida");
+      return 1;
+    }
+
     this.miServicioTurno.agregarTurno(this.miTurno)
       .then(data => {
         swal(
