@@ -17,6 +17,8 @@ export class LoginComponent implements OnInit {
   userform: FormGroup;
   tablaUsuarios: any;
   titulo: string;
+  visible: boolean = false;
+  tituloEspera: string;
 
   constructor(private fb: FormBuilder, private miUsuario: Usuario, private miServicioUsuario: UsuarioService, public rute: Router, private miServicioLogin: LoginService) { }
 
@@ -62,6 +64,9 @@ export class LoginComponent implements OnInit {
   }
 
   admin() {
+    this.tituloEspera="Cargando lista de administradores";
+    this.tablaUsuarios = null;
+    this.visible = true;
     this.miServicioUsuario.traerUsuarioPorTipo(1)
       .then(data => {
         this.titulo = 'Administradores';
@@ -70,6 +75,9 @@ export class LoginComponent implements OnInit {
   }
 
   cliente() {
+    this.tituloEspera="Cargando lista de Clientes";
+    this.tablaUsuarios = null;
+    this.visible = true;
     this.miServicioUsuario.traerUsuarioPorTipo(2)
       .then(data => {
         this.titulo = 'Clientes';

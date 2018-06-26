@@ -15,7 +15,8 @@ import { TableModule } from 'primeng/table';
 import { DropdownModule } from 'primeng/dropdown';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { CalendarModule } from 'primeng/calendar';
-import {InputTextareaModule} from 'primeng/inputtextarea';
+import { InputTextareaModule } from 'primeng/inputtextarea';
+import { ProgressBarModule } from 'primeng/progressbar';
 
 @NgModule({
   imports: [
@@ -34,7 +35,8 @@ import {InputTextareaModule} from 'primeng/inputtextarea';
     DropdownModule,
     SelectButtonModule,
     CalendarModule,
-    InputTextareaModule
+    InputTextareaModule,
+    ProgressBarModule
   ],
   exports: [
     CommonModule,
@@ -52,7 +54,8 @@ import {InputTextareaModule} from 'primeng/inputtextarea';
     DropdownModule,
     SelectButtonModule,
     CalendarModule,
-    InputTextareaModule
+    InputTextareaModule,
+    ProgressBarModule
   ],
   declarations: []
 })

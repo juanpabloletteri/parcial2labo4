@@ -1,7 +1,12 @@
 <div class="ui-g">
   <div class="ui-g-12 ui-md-4 ui-lg-4"></div>
   <div class="ui-g-12 ui-md-4 ui-lg-4">
-<br><br><br><br><br><br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
     <form [formGroup]="userform" (ngSubmit)="onSubmit(userform.value)">
       <p-panel header="Ingreso">
         <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">
@@ -64,7 +69,12 @@
   <br>
   <br>
 
-  <div *ngIf="tablaUsuarios" >
+  <div *ngIf="!tablaUsuarios&&visible">
+    {{tituloEspera}}
+    <p-progressBar mode="indeterminate" [style]="{'height': '6px'}"></p-progressBar>
+  </div>
+
+  <div *ngIf="tablaUsuarios">
     <h3 class="first"> {{titulo}} </h3>
     <p-table [value]="tablaUsuarios">
       <ng-template pTemplate="header">
