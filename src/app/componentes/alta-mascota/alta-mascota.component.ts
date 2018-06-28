@@ -20,7 +20,8 @@ export class AltaMascotaComponent implements OnInit {
   cols: any[];
   datosTabla: any = null;
   titulo: string;
-  usuarioSeleccionado: Usuario;
+  usuarioSeleccionado: Usuario = null;
+  tipo: number;
 
   constructor(private fb: FormBuilder, private miMascota: Mascota, private miServicioMascota: MascotaService, public rute: Router, private miServiciousuario: UsuarioService) {
 
@@ -28,6 +29,8 @@ export class AltaMascotaComponent implements OnInit {
       .then(data => {
         this.datosTabla = data;
       })
+
+    this.tipo = this.miServiciousuario.getTipo();
 
     if (this.miServiciousuario.getIdUsuario() == 2) {
       this.miMascota.id_duenio = this.miServiciousuario.getIdUsuario();
@@ -65,6 +68,10 @@ export class AltaMascotaComponent implements OnInit {
     this.miMascota.edad = this.userform.value.edad;
     this.miMascota.tipo = this.userform.value.tipo;
 
+    if (this.tipo==1 && this.usuarioSeleccionado == null) {
+      swal('seleccione un usuario por favor');
+      return 1;
+    }
     this.miServicioMascota.agregarMascota(this.miMascota)
       .then(data => {
         swal(
