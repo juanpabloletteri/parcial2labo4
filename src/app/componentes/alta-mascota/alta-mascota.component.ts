@@ -3,6 +3,7 @@ import { Validators, FormControl, FormGroup, FormBuilder } from '@angular/forms'
 import { Mascota } from '../../clases/mascota';
 import { MascotaService } from '../../servicios/mascota.service';
 import { UsuarioService } from '../../servicios/usuario.service';
+import { Usuario } from '../../clases/usuario';
 import { SelectItem } from 'primeng/api';
 import { Router } from '@angular/router';
 import swal from 'sweetalert2';
@@ -16,13 +17,34 @@ export class AltaMascotaComponent implements OnInit {
 
   userform: FormGroup;
   types: SelectItem[];
+  cols: any[];
+  datosTabla: any = null;
+  titulo: string;
+  usuarioSeleccionado: Usuario;
 
   constructor(private fb: FormBuilder, private miMascota: Mascota, private miServicioMascota: MascotaService, public rute: Router, private miServiciousuario: UsuarioService) {
-    this.miMascota.id_duenio = this.miServiciousuario.getIdUsuario();
+
+    this.miServiciousuario.traerTodosLosUsuarios()
+      .then(data => {
+        this.datosTabla = data;
+      })
+
+    if (this.miServiciousuario.getIdUsuario() == 2) {
+      this.miMascota.id_duenio = this.miServiciousuario.getIdUsuario();
+    }
+
 
     this.types = [
       { label: 'Gato', value: 100, icon: 'fa fa-fw fa-cc-paypal' },
       { label: 'Perro', value: 200, icon: 'fa fa-fw fa-cc-visa' }
+    ];
+
+    /////////
+    this.titulo = 'MASCOTAS';
+    this.cols = [
+      { field: 'nombre', header: 'Nombre' },
+      { field: 'apellido', header: 'Apellido' },
+      { field: 'mail', header: 'Mail' }
     ];
   }
 
@@ -54,5 +76,7 @@ export class AltaMascotaComponent implements OnInit {
         //this.rute.navigate(['']); //aca llevar a componente cliente
       })
   }
-
+  onRowSelect(event) {
+    this.miMascota.id_duenio = this.usuarioSeleccionado.id_usuario;
+  }
 }
